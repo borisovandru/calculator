@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="button_Multiply" type="id">*</item>
+    <item name="button_Subtract" type="id">-</item>
+    <item name="button_Dot" type="id">.</item>
+    <item name="button_Equal" type="id">=</item>
+    <item name="button_Add" type="id">+</item>
+    <item name="button_Clear" type="id">c</item>
+</resources>
