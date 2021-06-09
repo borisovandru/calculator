@@ -1,15 +1,13 @@
 package com.android.calculator.domain;
 
 public class CalculatorImpl implements Calculator {
+    private Operation operation;
 
     @Override
-    public double binaryOperation(double argOne, double argTwo, Operation operation) {
-        if (operation == Operation.ADD) { return argOne + argTwo; }
+    public int performBinaryOperator(int argOne, int argTwo, Operation operator) {
+        if (operation == Operation.Divide)
+        return argOne / argTwo;
 
-        { if (operation == Operation.Multiply) { return argOne * argTwo; }
-
-            if (operation == Operation.Subtract) { return argOne - argTwo; }
-            if (operation == Operation.Divide) { return argOne / argTwo; }
-            return 0; }
     }
+
 }

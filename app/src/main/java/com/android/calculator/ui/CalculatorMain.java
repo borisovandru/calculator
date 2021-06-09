@@ -11,75 +11,145 @@ import com.android.calculator.domain.CalculatorImpl;
 
 public class CalculatorMain extends AppCompatActivity implements CalculatorView {
 
+    private TextView resultText;
+
     private CalculatorPresenter presenter;
-
-    private final TextView resultText;
-
-    public CalculatorMain(TextView resultText) {
-        this.resultText = resultText;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_grid_layout);
 
-
+        resultText = findViewById(R.id.result);
 
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
 
+        findViewById(R.id.button_7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonSevenClicked();
+            }
+        });
 
+        findViewById(R.id.button_8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonEightClicked();
+            }
+        });
 
-        findViewById(R.id.button_7).setOnClickListener(v -> presenter.onButtonSevenClicked());
+        findViewById(R.id.button_9).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonNineClicked();
+            }
+        });
 
-        findViewById(R.id.button_8).setOnClickListener(v -> { presenter.onButtonEightClicked();Clicked(); });
+        findViewById(R.id.button_divide).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonDivideClicked();
+            }
+        });
 
-        findViewById(R.id.button_9).setOnClickListener(v -> { presenter.onButtonNineClicked();Clicked(); });
-
-        findViewById(R.id.button_divide).setOnClickListener(v -> presenter.onButtonDivideClicked());
-
-        findViewById(R.id.button_4).setOnClickListener(v -> presenter.onButtonFourClicked());
-
-        findViewById(R.id.button_5).setOnClickListener(v -> presenter.onButtonFiveClicked());
-
-        findViewById(R.id.button_6).setOnClickListener(v -> presenter.onButtonSixClicked());
-
-        findViewById(R.id.button_Multiply).setOnClickListener(v -> presenter.onButtonMultiplyClicked());
-
-        findViewById(R.id.button_1).setOnClickListener(v -> presenter.onButtonOneClicked());
-
-        findViewById(R.id.button_2).setOnClickListener(v -> presenter.onButtonTwoClicked());
-
-        findViewById(R.id.button_3).setOnClickListener(v -> presenter.onButtonThreeClicked());
-
-        findViewById(R.id.button_Subtract).setOnClickListener(v -> presenter.onButtonSubtractClicked());
-
-        findViewById(R.id.button_Dot).setOnClickListener(v -> presenter.onButtonDotClicked());
-
-        findViewById(R.id.button_0).setOnClickListener(v -> presenter.onButtonZeroClicked());
-
-        findViewById(R.id.button_Equal).setOnClickListener(v -> presenter.onButtonEqualClicked());
-
-        findViewById(R.id.button_Add).setOnClickListener(v -> presenter.onButtonAddClicked());
-
-        findViewById(R.id.button_Clear).setOnClickListener(v -> presenter.onButtonClearClicked());
-    }
-
-    private void Clicked() {
     }
 
     @Override
     public void showResult(String result) {
         resultText.setText(result);
     }
-
-    @Override
-    public void getSomeText() { }
-
-    @Override
-    public void showProgress() { resultText.setVisibility(View.VISIBLE); }
-
-    @Override
-    public void hideProgress() { resultText.setVisibility(View.GONE); }
-
 }
+
+       /* findViewById(R.id.button_4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonFourClicked();
+            }
+        });
+
+        findViewById(R.id.button_5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonFiveClicked();
+            }
+        });
+
+        findViewById(R.id.button_6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonSixClicked();
+            }
+        });
+
+        findViewById(R.id.buttonMultiply).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonMultiplyClicked();
+            }
+        });
+
+        findViewById(R.id.button_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonOneClicked();
+            }
+        });
+
+        findViewById(R.id.button_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonTwoClicked();
+            }
+        });
+
+        findViewById(R.id.button_3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonThreeClicked();
+            }
+        });
+
+        findViewById(R.id.buttonSubtract).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonSubtractClicked();
+            }
+        });
+
+        findViewById(R.id.buttonDot).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonDotClicked();
+            }
+        });
+
+        findViewById(R.id.button_0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonZeroClicked();
+            }
+        });
+
+        findViewById(R.id.buttonEqual).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonEqualClicked();
+            }
+        });
+
+        findViewById(R.id.buttonAdd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonAddClicked();
+            }
+        });
+
+        findViewById(R.id.buttonClear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onButtonClearClicked();
+            }
+        });
+    }*/
+
+
