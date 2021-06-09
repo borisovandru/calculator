@@ -17,4 +17,10 @@
     <string name="btn_add">+</string>
     <string name="btn_subtract">-</string>
     <string name="btn_clear">C</string>
+    <string name="btn_Multiply" type="id">*</string>
+    <string name="btn_Subtract" type="id">-</string>
+    <string name="btn_Dot" type="id">.</string>
+    <string name="btn_Equal" type="id">=</string>
+    <string name="btn_Add" type="id">+</string>
+    <string name="btn_Clear" type="id">c</string>
 </resources>

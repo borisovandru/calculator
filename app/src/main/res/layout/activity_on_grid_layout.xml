@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_700"
     android:orientation="vertical"
-    android:background="@color/teal_200"
     tools:context=".ui.CalculatorBest">
 
     <GridLayout
@@ -16,13 +16,11 @@
 
         <TextView
             android:id="@+id/result"
-            android:layout_height="result"
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
             android:gravity="end"
             android:text="@string/result"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size"/>
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_7"
@@ -119,7 +117,7 @@
                 android:id="@+id/buttonDot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_dot"/>
+                android:text="@string/btn_dot" />
 
         </GridLayout>
 
