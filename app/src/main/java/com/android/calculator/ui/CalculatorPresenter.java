@@ -11,11 +11,12 @@ public class CalculatorPresenter {
     private int argumentTwo = 0;
     private boolean isFirstArgument = true;
     private Operation operator = null;
+    private final int Clear;
 
-
-    public CalculatorPresenter(CalculatorView view, Calculator calculator) {
+    public CalculatorPresenter(CalculatorView view, Calculator calculator, int clear) {
         this.view = view;
         this.calculator = calculator;
+        Clear = clear;
 
         publishArgument();
     }
@@ -34,77 +35,6 @@ public class CalculatorPresenter {
 
     public void onButtonNineClicked() {
         computeArg(9);
-
-        publishArgument();
-    }
-
-    public void onButtonDivideClicked() {
-        isFirstArgument = false;
-
-        if (operator != null) {
-
-            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
-
-            view.showResult(String.valueOf(result));
-
-            argumentOne = result;
-            argumentTwo = 0;
-
-        }
-
-        operator = Operation.Divide;
-        operator = Operation.Multiply;
-    }
-
-    private void publishArgument() {
-
-        if (isFirstArgument) {
-            view.showResult(String.valueOf(argumentOne));
-        } else {
-            view.showResult(String.valueOf(argumentTwo));
-        }
-    }
-
-    private void computeArg(int divide) {
-        if (isFirstArgument) {
-            argumentOne = argumentOne * 10 + divide;
-        } else {
-            argumentTwo = argumentTwo * 10 + divide;
-        }
-    }
-
-}
-
-
-
-
-
-
-
-
-    /*public void onButtonSevenClicked() {
-        computeArg(7);
-
-        publishArgument();
-    }*/
-
-   /* public void onButtonEightClicked() {
-
-        computeArg(8);
-
-        publishArgument();
-    }
-
-    public void onButtonNineClicked() {
-
-        computeArg(9);
-
-        publishArgument();
-    }
-
-    public void onButtonDivideClicked() {
-
-        computeArg(Divide);
 
         publishArgument();
     }
@@ -130,13 +60,6 @@ public class CalculatorPresenter {
         publishArgument();
     }
 
-    public void onButtonMultiplyClicked() {
-
-        computeArg(Multiply);
-
-        publishArgument();
-    }
-
     public void onButtonOneClicked() {
 
         computeArg(1);
@@ -145,63 +68,147 @@ public class CalculatorPresenter {
     }
 
     public void onButtonTwoClicked() {
-
         computeArg(2);
 
         publishArgument();
     }
 
     public void onButtonThreeClicked() {
-
         computeArg(3);
 
         publishArgument();
     }
 
-    public void onButtonSubtractClicked() {
-
-        computeArg(Subtract);
-
-        publishArgument();
-    }
-
-    public void onButtonDotClicked() {
-
-        int dot = 0;
-        computeArg(dot);
-
-        publishArgument();
-    }
-
     public void onButtonZeroClicked() {
-
         computeArg(0);
 
         publishArgument();
     }
 
-    public void onButtonEqualClicked() {
-
-        computeArg(Equal);
+    public void onButtonClearClicked() {
+        computeArg(Clear);
 
         publishArgument();
     }
 
     public void onButtonAddClicked() {
+        isFirstArgument = false;
 
-        computeArg(Add);
+        if (operator != null) {
 
-        publishArgument();
+            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+
+        }
+        operator = Operation.Divide;
+        operator = Operation.Multiply;
+        operator = Operation.Subtract;
+        operator = Operation.Add;
     }
 
-    public void onButtonClearClicked() {
+    public void onButtonEqualClicked() {
+        isFirstArgument = false;
 
-        computeArg(Clear);
+        if (operator != null) {
 
-        publishArgument();
-    }*/
+            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
 
-    /*private void publishArgument() {
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+
+        }
+        operator = Operation.Divide;
+        operator = Operation.Multiply;
+        operator = Operation.Subtract;
+        operator = Operation.Add;
+    }
+
+    public void onButtonDotClicked() {
+        isFirstArgument = false;
+
+        if (operator != null) {
+
+            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+
+        }
+        operator = Operation.Divide;
+        operator = Operation.Multiply;
+        operator = Operation.Subtract;
+        operator = Operation.Add;
+    }
+
+    public void onButtonSubtractClicked() {
+
+        isFirstArgument = false;
+
+        if (operator != null) {
+
+            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+
+        }
+        operator = Operation.Divide;
+        operator = Operation.Multiply;
+        operator = Operation.Subtract;
+        operator = Operation.Add;
+
+    }
+
+    public void onButtonMultiplyClicked() {
+
+        isFirstArgument = false;
+
+        if (operator != null) {
+
+            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+
+        }
+        operator = Operation.Divide;
+        operator = Operation.Multiply;
+        operator = Operation.Subtract;
+        operator = Operation.Add;
+    }
+
+    public void onButtonDivideClicked() {
+        isFirstArgument = false;
+
+        if (operator != null) {
+
+            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+
+        }
+        operator = Operation.Divide;
+        operator = Operation.Multiply;
+        operator = Operation.Subtract;
+        operator = Operation.Add;
+    }
+
+    private void publishArgument() {
 
         if (isFirstArgument) {
             view.showResult(String.valueOf(argumentOne));
@@ -210,71 +217,13 @@ public class CalculatorPresenter {
         }
     }
 
-    private void computeArg(int addition) {
+    private void computeArg(int divide) {
         if (isFirstArgument) {
-            argumentOne = argumentOne * 10 + addition;
+            argumentOne = argumentOne * 10 + divide;
         } else {
-            argumentTwo = argumentTwo * 10 + addition;
+            argumentTwo = argumentTwo * 10 + divide;
         }
-
-    }*/
-    /*double res;
-
-    {
-        assert false;
-        double argOne = 0;
-        double argTwo = 0;
-        res = calculator.binaryOperation(argOne, argTwo, Operation.operation);
-    }*/
-
-    /*public void onButtonOneClicked() {
     }
 
-    public void onButtonTwoClicked() {
-    }
-
-    public void onButtonNineClicked() {
-    }
-
-    public void onButtonSevenClicked() {
-    }
-
-    public void onButtonEightClicked() {
-    }
-
-    public void onButtonDivideClicked() {
-    }
-
-    public void onButtonFourClicked() {
-    }
-
-    public void onButtonFiveClicked() {
-    }
-
-    public void onButtonSixClicked() {
-    }
-
-    public void onButtonMultiplyClicked() {
-    }
-
-    public void onButtonThreeClicked() {
-    }
-
-    public void onButtonSubtractClicked() {
-    }
-
-    public void onButtonDotClicked() {
-    }
-
-    public void onButtonZeroClicked() {
-    }
-
-    public void onButtonEqualClicked() {
-    }
-
-    public void onButtonAddClicked() {
-    }
-
-    public void onButtonClearClicked() {
-    }*/
+}
 

@@ -22,7 +22,9 @@ public class CalculatorMain extends AppCompatActivity implements CalculatorView 
 
         resultText = findViewById(R.id.result);
 
-        presenter = new CalculatorPresenter(this, new CalculatorImpl());
+        int clear = 0;
+
+        presenter = new CalculatorPresenter(this, new CalculatorImpl(), clear);
 
         findViewById(R.id.button_7).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,15 +54,7 @@ public class CalculatorMain extends AppCompatActivity implements CalculatorView 
             }
         });
 
-    }
-
-    @Override
-    public void showResult(String result) {
-        resultText.setText(result);
-    }
-}
-
-       /* findViewById(R.id.button_4).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button_4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onButtonFourClicked();
@@ -150,6 +144,13 @@ public class CalculatorMain extends AppCompatActivity implements CalculatorView 
                 presenter.onButtonClearClicked();
             }
         });
-    }*/
+    }
 
+
+
+    @Override
+    public void showResult(String result) {
+        resultText.setText(result);
+    }
+    }
 

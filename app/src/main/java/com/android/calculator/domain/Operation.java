@@ -3,7 +3,7 @@ package com.android.calculator.domain;
 public enum Operation {
     Divide,
     Multiply,
-    /*Add,
-    Multiply,
-    Subtract*/
+    Subtract,
+    Add,
+    Clear,
 }
