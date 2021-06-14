@@ -13,7 +13,7 @@ public class CalculatorMain extends AppCompatActivity implements CalculatorView 
 
     private TextView resultText;
 
-    private CalculatorPresenter presenter;
+    public  CalculatorPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +22,7 @@ public class CalculatorMain extends AppCompatActivity implements CalculatorView 
 
         resultText = findViewById(R.id.result);
 
-        int clear = 0;
-
-        presenter = new CalculatorPresenter(this, new CalculatorImpl(), clear);
+        presenter = new CalculatorPresenter(this, new CalculatorImpl());
 
         findViewById(R.id.button_7).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,11 +144,9 @@ public class CalculatorMain extends AppCompatActivity implements CalculatorView 
         });
     }
 
-
-
     @Override
     public void showResult(String result) {
         resultText.setText(result);
     }
-    }
+}
 

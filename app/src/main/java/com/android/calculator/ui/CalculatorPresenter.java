@@ -11,12 +11,10 @@ public class CalculatorPresenter {
     private int argumentTwo = 0;
     private boolean isFirstArgument = true;
     private Operation operator = null;
-    private final int Clear;
 
-    public CalculatorPresenter(CalculatorView view, Calculator calculator, int clear) {
+    public CalculatorPresenter(CalculatorView view, Calculator calculator) {
         this.view = view;
         this.calculator = calculator;
-        Clear = clear;
 
         publishArgument();
     }
@@ -86,9 +84,20 @@ public class CalculatorPresenter {
     }
 
     public void onButtonClearClicked() {
-        computeArg(Clear);
+        isFirstArgument = false;
 
-        publishArgument();
+        if (operator != null) {
+
+            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+
+        }
+
+        operator = Operation.Clear;
     }
 
     public void onButtonAddClicked() {
@@ -104,9 +113,7 @@ public class CalculatorPresenter {
             argumentTwo = 0;
 
         }
-        operator = Operation.Divide;
-        operator = Operation.Multiply;
-        operator = Operation.Subtract;
+
         operator = Operation.Add;
     }
 
@@ -123,14 +130,12 @@ public class CalculatorPresenter {
             argumentTwo = 0;
 
         }
-        operator = Operation.Divide;
-        operator = Operation.Multiply;
-        operator = Operation.Subtract;
-        operator = Operation.Add;
+
+        operator = Operation.Equal;
     }
 
     public void onButtonDotClicked() {
-        isFirstArgument = false;
+        /*isFirstArgument = false;
 
         if (operator != null) {
 
@@ -145,12 +150,12 @@ public class CalculatorPresenter {
         operator = Operation.Divide;
         operator = Operation.Multiply;
         operator = Operation.Subtract;
-        operator = Operation.Add;
+        operator = Operation.Add;*/
     }
 
     public void onButtonSubtractClicked() {
 
-        isFirstArgument = false;
+        /*isFirstArgument = false;
 
         if (operator != null) {
 
@@ -162,16 +167,14 @@ public class CalculatorPresenter {
             argumentTwo = 0;
 
         }
-        operator = Operation.Divide;
-        operator = Operation.Multiply;
-        operator = Operation.Subtract;
-        operator = Operation.Add;
+
+        operator = Operation.Subtract;*/
 
     }
 
     public void onButtonMultiplyClicked() {
 
-        isFirstArgument = false;
+        /*isFirstArgument = false;
 
         if (operator != null) {
 
@@ -183,14 +186,13 @@ public class CalculatorPresenter {
             argumentTwo = 0;
 
         }
-        operator = Operation.Divide;
-        operator = Operation.Multiply;
-        operator = Operation.Subtract;
-        operator = Operation.Add;
+
+        operator = Operation.Multiply;*/
+
     }
 
     public void onButtonDivideClicked() {
-        isFirstArgument = false;
+       /* isFirstArgument = false;
 
         if (operator != null) {
 
@@ -202,10 +204,8 @@ public class CalculatorPresenter {
             argumentTwo = 0;
 
         }
-        operator = Operation.Divide;
-        operator = Operation.Multiply;
-        operator = Operation.Subtract;
-        operator = Operation.Add;
+
+        operator = Operation.Divide;*/
     }
 
     private void publishArgument() {
@@ -217,13 +217,28 @@ public class CalculatorPresenter {
         }
     }
 
-    private void computeArg(int divide) {
+    private void computeArg(/*, int Divide*/int Add) {
         if (isFirstArgument) {
-            argumentOne = argumentOne * 10 + divide;
+            argumentOne = argumentOne * 10 + Add;
         } else {
-            argumentTwo = argumentTwo * 10 + divide;
+            argumentTwo = argumentTwo * 10 + Add;
         }
+
+        /*if (isFirstArgument) {
+            argumentOne = argumentOne * 10 + Divide;
+        } else {
+            argumentTwo = argumentTwo * 10 + Divide;
+        }*/
+
     }
+
+    /*private void computeArg(int Subtract) {
+        if (isFirstArgument) {
+            argumentOne = argumentOne * 10 + Subtract;
+        } else {
+            argumentTwo = argumentTwo * 10 + Subtract;
+        }
+    }*/
 
 }
 

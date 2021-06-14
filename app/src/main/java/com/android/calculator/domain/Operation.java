@@ -6,4 +6,5 @@ public enum Operation {
     Subtract,
     Add,
     Clear,
+    Equal,
 }
